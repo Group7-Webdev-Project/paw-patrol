@@ -13,3 +13,10 @@ toggleMenu.addEventListener('click', () => {
         iconChange.classList.replace('fa-xmark', 'fa-bars');
     }
 });
+
+document.querySelectorAll('.footer-info-container article aside h4').forEach(infoHeader => {
+    infoHeader.addEventListener('click', () => {
+        const parentAside = infoHeader.parentElement;
+        parentAside.classList.toggle('active');
+    });
+});

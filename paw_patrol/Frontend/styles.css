@@ -221,6 +221,8 @@ div.footer-info-container article aside {
     gap: 10px;
 }
 
+div.footer-info-container article aside h4 i { display: none; }
+
 div.footer-info-container article aside h4 { margin-bottom: 10px; }
 
 div.footer-info-container article aside a { font-size: 14px; }
@@ -253,7 +255,14 @@ div.footer-info-container aside.footer-sign-up a {
     color: white;
     font-size: 14px;
     font-weight: 600;
+    transition: transform 0.3s ease-in-out;
 }   
+
+div.footer-info-container aside.footer-sign-up a:hover {
+    background-color: #FFE4B5;
+    color: #4a3220;
+    transform: scale(1.02);
+}
 
     /* legal info in footer*/
 footer section.upper-footer div.legal-info {
@@ -297,7 +306,7 @@ footer section.lower-footer div {
     flex-wrap: wrap;
     padding: 10px 0;
 }
-
+    /* copyright and trademark info */
 footer section.lower-footer div p {
     font-size: 13px;
     font-family: sans-serif;
@@ -309,6 +318,7 @@ footer section.lower-footer div p {
 
 footer section.lower-footer div p span { margin-right: 10px; }
 
+    /* socail media links */
 footer section.lower-footer div aside a {
     margin-right: 25px;
     font-size: 20px;
@@ -376,7 +386,46 @@ footer section.lower-footer div aside a {
         padding: 20px;
     }
 
-    /* ========== FOOTER =========== */
-    
+        /* ========== FOOTER =========== */
+    div.footer-info-container article { padding-top: 0; }
 
+    div.footer-info-container article aside {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px 0;
+    }
+
+    /* hide info links by default on mobile */
+    div.footer-info-container article aside a { display: none; }
+
+    div.footer-info-container article aside h4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    div.footer-info-container article aside h4 i { 
+        display: inline-block;
+        transition: transform 0.3s ease; 
+    }
+
+    .footer-info-container article aside.active h4 i { transform: rotate(180deg); }
+
+    /* Show links when active */
+    div.footer-info-container article aside.active a {
+        display: block;
+        padding-left: 10px;
+    }
+
+    /* sign up aligning center */
+    div.footer-info-container aside.footer-sign-up {
+        margin: 0 auto;
+    }
+
+    /* social media link aligning center */
+    section.lower-footer div aside {
+        margin: 0 auto;
+    }
 }
