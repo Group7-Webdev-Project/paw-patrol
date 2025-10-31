@@ -14,55 +14,69 @@ a {
 
 /* ======== HEADER ======== */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 30px;
+    box-sizing: border-box;
     z-index: 1000;
+    background-color: #8B5E3C;
+    color: white;
+}
+
+    /* ======= LOGO ==========*/
+header aside.logo-container {
+    height: 60px;
+    width: 200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
-    padding: 15px 50px;
-    background: #8B5E3C;
-    color: #FFF9F4;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header img {
-    width: 60px;
-    height: auto;
-    border-radius: 50%;
-}
-
-header h1 {
     margin: 0;
-    font-size: 1.8rem;
+}
+header aside.logo-container h3 { width: 200px; }
+
+header div.logo-img-container {
+    height: 50px;
+    width: 100px;
+}
+header div.logo-img-container img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
-/* ======== NAVIGATION ======== */
-nav ul {
+    /*========= NAVIGATION ==========*/
+header nav.navigation {
     display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    justify-content: space-evenly;
+    width: 600px;
 }
 
-nav ul li a {
-    color: #FFF9F4;
+header nav.navigation a {
+    position: relative;
     text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+    padding: 5px 0;
+    color: white;
 }
 
-nav ul li a:hover {
-    color: #FFD9A0;
-    text-decoration: underline;
+    /*=========== HAMBORGAR ICON FOR MOBILE ============*/
+/* hide toggle button for PC screen*/
+header div.menu-toggle {
+    display: none;
+    z-index: 1001;
+    cursor: pointer;
 }
+
+/* hide nav menu for mobile */
+header div.small-screen-menu {
+    display: none;
+}
+
 
 /* ======== HERO SECTION ======== */
 .hero {
@@ -301,18 +315,57 @@ footer section.lower-footer div aside a {
 }
 
 
-/* ======== RESPONSIVE DESIGN ======== */
+/* ======== RESPONSIVE DESIGN - MOBILE ======== */
 @media (max-width: 768px) {
-    header {
+
+    /*======= HEADER =========*/
+    /* hide PC nav bar in mobile version*/
+    header nav.navigation { display: none; }
+
+    /* show nav when active */
+    header nav.navigation.active { display: flex; }
+
+    /* show the jirburger icon */
+    header div.menu-toggle { display: block; }
+
+    /* side menu for mobile screen */
+    header div.small-screen-menu {
+        background-color: #8B5E3C;
+        height: 100vh;
+        width: 100%;
+        max-width: 250px;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        display: flex;
         flex-direction: column;
-        padding: 20px;
+        align-items: start;
+        padding: 80px 10px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-sizing: border-box;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+    header div.small-screen-menu a {
+        color: white;
+        text-decoration: none;
+        margin: 10px 0;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 5px 15px;
+        transition: transform 0.3s ease-in-out;
     }
+
+    header div.small-screen-menu a:hover {
+        background-color: #FFD9A0;
+        color: #4a3220;
+        border-radius: 10px;
+        transform: scale(1.02);
+    }
+
+    header div.small-screen-menu.active { right: 0; }
+
 
     .hero {
         padding: 80px 20px;
@@ -322,4 +375,8 @@ footer section.lower-footer div aside a {
         width: 95%;
         padding: 20px;
     }
+
+    /* ========== FOOTER =========== */
+    
+
 }

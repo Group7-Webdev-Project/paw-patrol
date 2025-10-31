@@ -11,19 +11,32 @@
 
     <!-- ========== HEADER ========== -->
     <header>
-        <div class="logo">
-            <img src="images/logo1.png" alt="Paw Patrol Logo">
-            <h1>Paw Patrol</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#adopt">Adopt</a></li>
-                <li><a href="#help">Help</a></li>
-                <li><a href="#care">Pet Care</a></li>
-            </ul>
+        <aside class="logo-container">
+            <div class="logo-img-container">
+                <img src="./images/logo1.png" alt="">
+            </div>
+            <h3>Paw Patrol</h3>
+        </aside>
+  
+        <nav class="navigation" id="nav-menu">
+            <a href="">Home</a>
+            <a href="">About Us</a>
+            <a href="">Adopt</a>
+            <a href="">Help Us</a>
+            <a href="">Petcare Tips</a>
         </nav>
+        
+        <div class="small-screen-menu" id="small-screen-menu">
+            <a href="">Home</a>
+            <a href="">About Us</a>
+            <a href="">Adopt</a>
+            <a href="">Help Us</a>
+            <a href="">Petcare Tips</a>
+        </div>
+
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
     </header>
 
     <!-- ========== HERO SECTION ========== -->
@@ -209,5 +222,6 @@
         </section>
     </footer>
 
+    <script src="paw-patrol.js"></script>
 </body>
 </html>
