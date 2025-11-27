@@ -77,10 +77,10 @@ document.querySelectorAll('.footer-info-container article aside h4').forEach(inf
 
 // Populate Gallery 
 const galleryList = [
-    { "image" : "images/adoptImages/name2.jpg" },
+    { "image" : "images/adoptImages/name1.jpg" },
     { "image" : "images/adoptImages/name3.jpg" },
-    { "image" : "images/adoptImages/name4.jpg" },
     { "image" : "images/adoptImages/name2.jpg" },
+    { "image" : "images/adoptImages/name1.jpg" },
     { "image" : "images/adoptImages/name4.jpg" },
     { "image" : "images/adoptImages/name2.jpg" },
     { "image" : "images/adoptImages/name4.jpg" },
@@ -88,8 +88,23 @@ const galleryList = [
 ];
 
 async function makeGallery() {
-    const galleryContainer = document.getElementById('series-gallery');
+    const galleryContainer = document.getElementById('gallery-container');
     if (!galleryContainer) return; // Exit if element doesn't exist
+
+    // ensure a track exists inside the container so we can translate it
+    let track = galleryContainer.querySelector('.gallery-track');
+    if (!track) {
+        track = document.createElement('div');
+        track.classList.add('gallery-track');
+        // move existing children (if any) into the track
+        while (galleryContainer.firstChild) {
+            track.appendChild(galleryContainer.firstChild);
+        }
+        galleryContainer.appendChild(track);
+    } else {
+        // clear previous items
+        track.innerHTML = '';
+    }
 
     galleryList.forEach(img => {
         const imgContainer = document.createElement('div');
@@ -100,8 +115,67 @@ async function makeGallery() {
             <img src="${img.image}">
         `;
 
-        galleryContainer.appendChild(imgContainer);
+        track.appendChild(imgContainer);
     });
+
+    // create arrows if not present
+    const createArrow = (dir) => {
+        const cls = `gallery-arrow gallery-arrow-${dir}`;
+        let btn = galleryContainer.querySelector(`.gallery-arrow-${dir}`);
+        if (!btn) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = cls;
+            btn.setAttribute('aria-label', dir === 'right' ? 'Next images' : 'Previous images');
+            btn.innerHTML = dir === 'right' ? '<i class="fa-solid fa-chevron-right"></i>' : '<i class="fa-solid fa-chevron-left"></i>';
+            galleryContainer.appendChild(btn);
+        }
+        return btn;
+    };
+
+    const btnLeft = createArrow('left');
+    const btnRight = createArrow('right');
+
+    // sliding logic: translate the track by viewport-sized steps
+    let offset = 0;
+
+    function updateLimits() {
+        const containerWidth = galleryContainer.clientWidth;
+        const maxOffset = Math.max(0, track.scrollWidth - containerWidth);
+        // clamp offset
+        offset = Math.max(0, Math.min(offset, maxOffset));
+        track.style.transform = `translateX(${-offset}px)`;
+        // toggle disabled state
+        btnLeft.disabled = offset <= 0;
+        btnRight.disabled = offset >= maxOffset - 1; // small fudge
+    }
+
+    // move by container width (one 'page')
+    function moveRight() {
+        const step = galleryContainer.clientWidth;
+        const maxOffset = Math.max(0, track.scrollWidth - galleryContainer.clientWidth);
+        offset = Math.min(maxOffset, offset + step);
+        updateLimits();
+    }
+
+    function moveLeft() {
+        const step = galleryContainer.clientWidth;
+        offset = Math.max(0, offset - step);
+        updateLimits();
+    }
+
+    btnRight.addEventListener('click', moveRight);
+    btnLeft.addEventListener('click', moveLeft);
+
+    // support resize to recalc sizes
+    window.addEventListener('resize', () => {
+        // keep current 'page' by recalculating offset bounds
+        updateLimits();
+    });
+
+    // initialize transform and button states
+    // give a small timeout to allow images to load and sizes to settle
+    setTimeout(updateLimits, 100);
 }
 
 // Populate News & Blog
