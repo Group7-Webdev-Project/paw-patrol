@@ -249,11 +249,12 @@ section#about div.upper-about {
     justify-content: space-between;
 }
 div.upper-about aside.mission-vision {
-    width: 35%;
+    width: 425px;
+    margin-bottom: 10px;
 }
 
 div.upper-about aside.our-team {
-    width: 60%;
+    width: 700px;
     display: flex;
     flex-direction: column;
 }
@@ -678,6 +679,97 @@ section#help div.involved-container div.help-actions article aside.volunteer-for
         background-color: #5B21B6;
         border: none;
     }
+
+    /*
+        PETCARE TIPS
+    */
+main section#care {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+main section#care h2 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+}
+main section#care h2 i {
+    font-size: 22px;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+    main section#care h2:hover i {
+        transform: translateX(8px);
+    } 
+
+section#care div.care-tips-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section#care div.care-tips-container article {
+    width: 300px;
+    height: auto; /* let article size to its content (image + heading) */
+    margin-bottom: 10px;
+    position: relative;
+}
+div.care-tips-container article h3 {
+    color: white;
+    background-color: #7C3AED;
+    margin: 0;
+    padding: 18px 0 12px 0; 
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    border-radius: 0 0 10px 10px;
+}
+    section#care div.care-tips-container article:hover h3 {
+        transform: translateY(-5px);
+    }
+div.care-tips-container article i.fa-chevron-up {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease-in-out;
+    bottom: 43px;
+    background-color: #7C3AED;
+    color: white;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 0;
+}
+
+    section#care div.care-tips-container article:hover i.fa-chevron-up {
+        transform: translate(-50%, -70%);
+        border-radius: 50%;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* PET CARE IMAGES */
+div.care-tips-container article aside.care-img-container {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+}
+
+div.care-tips-container article aside.care-img-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+}
+    section#care div.care-tips-container article:hover aside.care-img-container img {
+        opacity: 1;
+    }
+
+
 
 
 /* 
