@@ -678,14 +678,17 @@ section#help div.involved-container div.help-actions article aside.volunteer-for
     transition: opacity 0.3s ease;
 }
 
-section#help div.involved-container div.help-actions article aside.volunteer-form a {
+section#help div.involved-container div.help-actions article aside.volunteer-form a,
+section#help div.involved-container div.help-actions article aside.volunteer-form button {
     color: #4C1D95;
     border: 2px solid #5B21B6;
     padding: 10px 20px;
     border-radius: 50px;
     font-size: 14px;
+    background: none;
 }
-    section#help div.involved-container div.help-actions article aside.volunteer-form a:hover {
+    section#help div.involved-container div.help-actions article aside.volunteer-form a:hover,
+    section#help div.involved-container div.help-actions article aside.volunteer-form button:hover {
         color: white;
         background-color: #5B21B6;
         border: none;
@@ -2084,6 +2087,7 @@ main.donation div.donate-img-container h2 {
     transform: translate(-50%, -50%);
     font-size: 42px;
     color: #f26929;
+    font-family: 'LEMON';
 }
 
 /* Donation form */
@@ -2302,4 +2306,79 @@ section.wish-container div.card button {
 
 section.wish-container div.card:hover button {
     background-color: #5B21B6;
+}
+
+    /*
+        EVENT SECTION
+    */
+main.event {
+    width: 80%;
+    margin: 0 auto 30px auto;
+}
+    /* event buttons */
+main.event section.nav {
+    padding: 0;
+    display: flex;
+    align-items: left;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+section.nav button {
+    min-width: 80px;
+    padding: 8px 20px;
+    border: 1px solid #7C3AED;
+    border-radius: 50px;
+    color: #4C1D95;
+    background: none;
+    transition: 0.2s ease-in-out;
+}
+    section.nav button.active,
+    section.nav button:hover {
+        background-color: #7C3AED;
+        color: white;
+    }
+
+ /* event cards */
+main.event section.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+}
+main.event section.event-container div.card {
+    width: 375px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+    main.event section.event-container div.card:hover {
+        transform: translateY(-12px);
+    }
+main.event section.event-container div.card div.event-img-container {
+    width: 100%;
+    height: 175px;
+}
+    main.event section.event-container div.card div.event-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+main.event section.event-container div.card div.card-content {
+    padding: 0 10px 20px 10px;
+}
+
+main.event section.event-container div.card div.card-content h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+main.event section.event-container div.card div.card-content p {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+main.event section.event-container div.card div.card-content p.date {
+    color: #f26929;
+    font-weight: 600;
+}
+
+main.event section.event-container div.card div.card-content p.place {
+    color: gray;
 }

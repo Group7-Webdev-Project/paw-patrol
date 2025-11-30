@@ -347,37 +347,91 @@ function wishlistCards(items) {
         container.appendChild(card);
     });
 }
-
+// initiliaze wishlist
 async function initWishlist() {
-    try {
-        const wishlist = await loadJSON('pets-wishlist.json'); // Path to your JSON file
+    const wishlist = await loadJSON('pets-wishlist.json'); // Path to your JSON file
 
-        // Initial render (all items)
-        wishlistCards(wishlist);
+    // Initial render (all items)
+    wishlistCards(wishlist);
 
-        // Filter buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const category = btn.dataset.category;
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
 
-                document.querySelectorAll('.filter-btn').forEach(b => 
-                    b.classList.remove('active')
-                );
+            document.querySelectorAll('.filter-btn').forEach(b => 
+                b.classList.remove('active')
+            );
 
-                btn.classList.add('active');
+            btn.classList.add('active');
 
-                if (category === 'all') {
-                    wishlistCards(wishlist);
-                } else {
-                    const filtered = wishlist.filter(item => item.category === category);
-                    wishlistCards(filtered);
-                }
-            });
+            if (category === 'all') {
+                wishlistCards(wishlist);
+            } else {
+                const filtered = wishlist.filter(item => item.category === category);
+                wishlistCards(filtered);
+            }
         });
-    } catch (err) {
-        console.error('Error loading wishlist:', err);
-    }
+    });
 }
+
+// Populate Event Cards 
+function eventCards(events) {
+    const container = document.querySelector('.event-container');
+    container.innerHTML = '';
+
+    events.forEach(event => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        card.innerHTML = `
+            <div class="event-img-container">
+                <img src="${event.img}" alt="${event.title}">
+            </div>
+            <div class="card-content">
+                <h3>${event.title}</h3>
+                <p class="desc">${event.brief}</p>
+                <p class="date">${event.calDay}, ${event.calMonth}, ${event.time}</p>
+                <p class="place">${event.place}</p>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+async function initEvent() {
+    const event = await loadJSON('pets-event.json');
+
+    // COUNT EVENTS
+    const upcomingCount = event.filter(e => e.category === "upcoming").length;
+    const pastCount = event.filter(e => e.category === "past").length;
+
+    // INSERT COUNTS INTO NAV BUTTONS
+    document.querySelector('.upcoming-count').textContent = `(${upcomingCount})`;
+    document.querySelector('.past-count').textContent = `(${pastCount})`;
+
+    // Load all
+    eventCards(event);
+
+    document.querySelectorAll('.event-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const category = btn.dataset.category;
+
+            document.querySelectorAll('.event-filter-btn').forEach(b => 
+                b.classList.remove('active')
+            );
+
+            btn.classList.add('active');
+
+            if(category === 'all') {
+                eventCards(event);
+            } else {
+                const filtered = event.filter(e => e.category === category);
+                eventCards(filtered);
+            }
+        });
+    });
+}
+
 
 // Populate adopt cards when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -386,6 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
     makeNewsHomepage();
     donateForm();
     initWishlist();
+    initEvent();
 });
 
 //petcare TIPS

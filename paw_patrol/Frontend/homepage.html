@@ -206,7 +206,7 @@
                         </aside>
                         <aside class="volunteer-form">
                             <p><b>Be with Us: </b>Participate in our upcoming community events and fundraisers.</p>
-                            <a href="">View Calendar</a>
+                            <button class="switch-btn" data-show="event">View Calendar</button>
                         </aside>
                     </article>
                 </div>
@@ -317,11 +317,30 @@
         </section>
         <hr>
         <section class="wish-container">
-            <!-- Populate with Cards.
-                Include Donate Now on each cards.
-            -->
+            <!-- Populate with Cards -->
         </section>
     </main>
+
+    <!-- ==== Event/Fundraiser ==== -->
+    <main class="event page" id="event">
+       <section class="event-header">
+            <h2>Events</h2>
+            <p>Join and be part of our events and fundraisers. No signup and application needed, just show-up.</p>
+       </section>
+       <section class="nav">
+            <button class="event-filter-btn active" data-category="all">All</button>
+            <button class="event-filter-btn" data-category="upcoming">
+                Upcoming <span class="count upcoming-count"></span>
+            </button>
+            <button class="event-filter-btn" data-category="past">
+                Past <span class="count past-count"></span>
+            </button>
+       </section>
+       <section class="event-container">
+            <!-- Populate with cards -->
+       </section>
+    </main> 
+
 
     <!-- ========== FOOTER ========== -->
     <footer>
