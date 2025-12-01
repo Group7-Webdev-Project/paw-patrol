@@ -227,7 +227,8 @@ main section {
 /* Section titles */
 main section h2 {
     color: #f26929;
-    font-size: 2rem;
+    font-family: "LEMON";
+    font-size: 2.5rem;
     margin-bottom: 25px;
 }
 
@@ -238,8 +239,16 @@ main section#about {
     background: #ffffff;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+main section#about > * {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 section#about div.about-header { 
@@ -296,10 +305,10 @@ div.upper-about aside.our-team div.team-people-container article {
 div.upper-about aside.our-team div.team-people-container article h3, p { margin: 0; }
 
 section#about hr { /* LINE BREAK */
-    padding: 7px;
+    padding: 4px;
     background-color: #A78BFA;
     width: 100%;
-    margin: 50px 0 10px 0;
+    margin: 50px auto 20px auto;
     border-radius: 10px;
     border: none;
     box-sizing: border-box;
@@ -629,7 +638,7 @@ section#help div.involved-container div.donate-actions article button {
     border: none;
 }
     section#help div.involved-container div.donate-actions article button:hover {
-        background-color: #5B21B6;
+        background-color: #f26929;
     }
 
     /* HELP ACTIONS */
@@ -706,7 +715,7 @@ main section#care {
 }
 main section#care h2 {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
 }
