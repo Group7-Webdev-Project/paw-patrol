@@ -314,7 +314,7 @@ section#about hr { /* LINE BREAK */
     box-sizing: border-box;
 }
 
-    /* Bottom About Us: Gallery */
+/* Bottom About Us: Gallery */
 main section#about div.bottom-about {
     display: flex;
     flex-direction: column;
@@ -323,7 +323,9 @@ main section#about div.bottom-about {
 section#about div.bottom-about h3 { 
     text-align: left;
     margin: 5px 0;
-    font-size: 24px;
+    font-family: "LEMON";
+    color: #f26929;
+    font-size: 1.8rem;
 }
 
 div.bottom-about aside.gallery { margin-bottom: 40px; }
@@ -334,20 +336,19 @@ div.bottom-about div.gallery-container {
     width: 100%;
     align-items: flex-start;
     margin-bottom: 18px;
-    overflow: hidden; /* hide native scrollbar - we'll provide arrow controls */
-    position: relative; /* for absolutely-positioned arrows */
+    overflow: hidden; 
+    position: relative; 
 }
 
 div.bottom-about div.gallery-container {
     width: 100%;
     height: auto;
     display: flex;
-    flex-wrap: nowrap; /* keep cards on single line */
+    flex-wrap: nowrap; 
     justify-content: flex-start;
     gap: 10px;
 }
 
-/* A sliding track inside the container that we translate left/right */
 .gallery-track {
     display: flex;
     gap: 10px;
@@ -356,11 +357,11 @@ div.bottom-about div.gallery-container {
     align-items: stretch;
 }
 
-/* gallery cards: fixed height, width controlled by flex-basis */
+
 div.bottom-about div.gallery-container div.gallery-card {
     display: flex;
-    flex: 0 0 200px; /* default width */
-    height: 200px;    /* fixed height so hover only affects width */
+    flex: 0 0 200px; 
+    height: 200px;   
     position: relative;
     overflow: hidden;
 }
@@ -375,15 +376,14 @@ div.bottom-about div.gallery-container {
 }
 
 div.bottom-about div.gallery-container div.gallery-card {
-    /* transition set on the card definition above; keep here for clarity */
     transition: flex-basis 0.35s ease, opacity 0.25s ease;
     will-change: flex-basis;
     z-index: 1;
 }
 
 div.bottom-about div.gallery-container div.gallery-card:hover {
-    flex-basis: 260px; /* expand hovered card (width only) */
-    z-index: 3; /* bring forward */
+    flex-basis: 260px; 
+    z-index: 3;
 }
 
 /* Arrow controls for the gallery (desktop) */
@@ -418,7 +418,7 @@ aside.gallery div.gallery-container div.gallery-card i { /*paw icon*/
     padding: 5px;
 }
 
-    /* Bottom About Us: News & Blog */
+/* Bottom About Us: News & Blog */
 section#about div.bottom-about {
     box-sizing: border-box;
 }
@@ -427,7 +427,7 @@ section#about div.bottom-about hr {
     border-radius: 10px 10px 0 0;
 }    
 section#about div.bottom-about aside.news-blog {
-    background-color: #E9D5FF;
+    background-color: #ffffff;
     padding: 15px 15px 20px 15px;
     width: 100%;
     box-sizing: border-box;
@@ -490,6 +490,7 @@ main section#adopt h2 {
     align-items: center;
     cursor: pointer;
 }
+
 main section#adopt h2 i {
     font-size: 22px;
     margin-left: 10px;
@@ -592,6 +593,22 @@ main section#help {
     display: flex;
     flex-direction: column;
 }
+
+main section#help h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main section#help h2 i {
+    font-size: 22px;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+    main section#help h2:hover i {
+        transform: translateX(8px);
+    } 
 
 section#help div.involved-container {
     display: flex;
@@ -713,12 +730,14 @@ main section#care {
     width: 80%;
     margin: 0 auto;
 }
+
 main section#care h2 {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
+
 main section#care h2 i {
     font-size: 22px;
     margin-left: 10px;
@@ -884,11 +903,12 @@ div.footer-info-container aside.footer-sign-up {
 div.footer-info-container aside.footer-sign-up p {
     color: #7C3AED;
     font-weight: 525;
+    padding-bottom: 10px;
 }
     /* sign-up button in the footer */
 div.footer-info-container aside.footer-sign-up a {
     padding: 20px;
-    background: linear-gradient(135deg, #7C3AED, #A78BFA);
+    background: #7C3AED;
     width: 70%;
     border-radius: 50px;
     color: white;
@@ -1294,7 +1314,8 @@ footer section.lower-footer div aside a {
 
 .process-header h1 {
     font-size: 2.5rem;
-    color: #7C3AED;
+    color: #f26929;
+    font-family: "LEMON";
     margin: 0 0 10px 0;
 }
 
@@ -1533,7 +1554,8 @@ footer section.lower-footer div aside a {
 
 .requirements-header h1 {
     font-size: 2.5rem;
-    color: #7C3AED;
+    font-family: "LEMON";
+    color: #f26929;
     margin: 0 0 10px 0;
 }
 
@@ -1602,6 +1624,7 @@ footer section.lower-footer div aside a {
 
 .card-header h2 {
     font-size: 1.3rem;
+    font-family: "Poppins", sans-serif;
     color: #7C3AED;
     margin: 0;
 }
@@ -1638,66 +1661,13 @@ footer section.lower-footer div aside a {
     flex: 1;
 }
 
-/* Important Notes Section */
-.requirements-notes {
-    background-color: #E9D5FF;
-    border-left: 5px solid #f26929;
-    padding: 35px;
-    border-radius: 15px;
-    margin-bottom: 50px;
-}
-
-.requirements-notes h3 {
-    color: #7C3AED;
-    font-size: 1.3rem;
-    margin: 0 0 25px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.requirements-notes h3 i {
-    font-size: 1.5rem;
-    color: #f26929;
-}
-
-.notes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.note-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #7C3AED;
-}
-
-.note-item h4 {
-    color: #7C3AED;
-    font-size: 1.1rem;
-    margin: 0 0 8px 0;
-}
-
-.note-item p {
-    color: #4C1D95;
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
 /* CTA Section */
 .requirements-cta {
-    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-    color: white;
-    padding: 50px;
+    background-color: #F3E8FF;
+    border-left: 5px solid #f26929;
+    padding: 40px;
     border-radius: 15px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
 }
 
 .requirements-cta .cta-content h3 {
@@ -1713,12 +1683,15 @@ footer section.lower-footer div aside a {
 
 .cta-buttons {
     display: flex;
+    padding-top: 30px;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .cta-buttons .btn {
+    padding: 15px 40px;
+    font-size: 1rem;
     white-space: nowrap;
 }
 
@@ -1813,8 +1786,8 @@ footer section.lower-footer div aside a {
 
 .stories-header h1 {
     font-size: 2.5rem;
-    color: #7C3AED;
-    margin: 0 0 10px 0;
+    font-family: "LEMON";
+    color: #f26929;
 }
 
 .stories-header p {
@@ -2301,11 +2274,6 @@ section.wish-container div.card div.card-content p {
     margin-bottom: 10px;
 }
 
-section.wish-container div.card div.card-content .amount,
-section.wish-container div.card div.card-content .priority {
-    font-weight: bold;
-    font-size: 14px;
-}
 
 section.wish-container div.card button {
     padding: 10px;
@@ -2319,7 +2287,7 @@ section.wish-container div.card button {
 }
 
 section.wish-container div.card:hover button {
-    background-color: #5B21B6;
+    background-color: #f26929;
 }
 
     /*
@@ -2832,4 +2800,91 @@ main.event section.event-container div.card div.card-content p.place {
 .pet-tips li {
     margin-bottom: 8px;
 }
+
+/* ======== DONATION FORM STYLING ======== */
+.sketchfab-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+main section#tower-model h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main section#tower-model h2 i {
+    font-size: 22px;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+    main section#tower-model h2:hover i {
+        transform: translateX(8px);
+    } 
+
+/* Amount options styling */
+.amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.amount-options .amount {
+    flex: 1;
+    min-width: 80px;
+    padding: 16px;
+    text-align: center;
+    border-radius: 12px;
+    background: #F3E8FF;
+    color: #7C3AED;
+    border: 2px solid #E9D5FF;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.amount-options .amount:hover {
+    background: #E9D5FF;
+    transform: translateY(-2px);
+}
+
+.amount-options .amount.selected {
+    background: #7C3AED;
+    color: white;
+    border-color: #7C3AED;
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+}
+
+.amount-options .amount.custom:hover {
+    background: #E9D5FF;
+}
+
+.amount-options .amount.custom.selected {
+    background: #7C3AED;
+    color: white;
+}
+
+/* Responsive for donation form */
+@media (max-width: 768px) {
+    .sketchfab-container {
+        margin-bottom: 30px;
+    }
+
+    .amount-options {
+        gap: 10px;
+    }
+
+    .amount-options .amount {
+        min-width: 70px;
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
 

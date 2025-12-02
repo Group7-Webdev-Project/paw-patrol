@@ -7,7 +7,7 @@
         "img": "images/wishlistImages/prem-dog-food.png",
         "amount_value": 2500,
         "category": "food",
-        "priority": "high",
+        "priority": "High",
         "status": "needed"
     },
     {
@@ -18,7 +18,7 @@
         "img": "images/wishlistImages/cat_scratching_post.jpg",
         "amount_value": 1500,
         "category": "toys & enrichment",
-        "priority": "medium",
+        "priority": "Medium",
         "status": "needed"
     },
     {
@@ -29,7 +29,7 @@
         "img": "images/wishlistImages/dog_bed.jpg",
         "amount_value": 1200,
         "category": "bed or cages",
-        "priority": "medium",
+        "priority": "Medium",
         "status": "needed"
     },
     {
@@ -40,7 +40,7 @@
         "img": "images/wishlistImages/vitamins.jpg",
         "amount_value": 500,
         "category": "vitamins & health",
-        "priority": "high",
+        "priority": "High",
         "status": "needed"
     },
     {
@@ -51,7 +51,7 @@
         "img": "images/wishlistImages/bird_cage.jpg",
         "amount_value": 3500,
         "category": "bed or cages",
-        "priority": "high",
+        "priority": "High",
         "status": "needed"
     },
     {
@@ -62,7 +62,7 @@
         "img": "images/wishlistImages/dog_chew_toys.jpg",
         "amount_value": 800,
         "category": "toys & enrichment",
-        "priority": "medium",
+        "priority": "Medium",
         "status": "needed"
     },
     {
@@ -73,7 +73,7 @@
         "img": "images/wishlistImages/cat_treats.jpg",
         "amount_value": 300,
         "category": "food",
-        "priority": "low",
+        "priority": "Low",
         "status": "needed"
     },
     {
@@ -84,7 +84,7 @@
         "img": "images/wishlistImages/pet_first_aid.jpg",
         "amount_value": 1000,
         "category": "vitamins & health",
-        "priority": "high",
+        "priority": "High",
         "status": "needed"
     }
 ]

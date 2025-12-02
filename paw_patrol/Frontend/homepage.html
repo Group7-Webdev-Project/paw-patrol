@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paw Patrol | Pet Adoption & Welfare</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adopt.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -45,7 +46,7 @@
 
     <!-- ========== MAIN CONTENT ========== -->
     <main class="main-content page active" id="main-content">
-            <!-- ========== HERO SECTION ========== -->
+        <!-- ========== HERO SECTION ========== -->
         <section class="hero">
             <div class="parallax-wrapper">
                 <div class="layer sky"></div>
@@ -62,10 +63,9 @@
             </div>
         </section>
         
-                <!-- ===== Adopt a Pet ===== -->
+        <!-- ===== Adopt a Pet ===== -->
         <section id="adopt">
             <h2>Adopt a Pet <i class="fa-solid fa-chevron-right"></i></h2>
-
             <div class="container-adopt-card" id="container-adopt-card">
                 <!-- Populate in JS -->
             </div>
@@ -251,59 +251,78 @@
             </div>
             
         </section>
+
+        <!-- ===== 3D Tower Model ===== -->
+        <section id="tower-model">
+            <h2>Paw Patrol Tower <i class="fa-solid fa-chevron-right"></i></h2>
+            <div class="sketchfab-container">
+                <iframe title="Paw Patrol Tower" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="500" src="https://sketchfab.com/3d-models/mobile-paw-patrol-rescue-world-lookout-tower-46e255a054c84f6cb2eff1f5ba7602bd/embed"></iframe>
+            </div>
+        </section>
     </main>
 
     <!-- ==== Donation ==== -->
-    <main class="donation page" id="donation">
-        <div class="donate-img-container">
-            <img src="images/volunteer.jpg" alt="">
-            <h2>Donate Now</h2>
-        </div>
-        <div class="donate process" id="donate-process">
-            <form id="donationForm" class="donation-container">
+    <main class="donation page pet-details-main" id="donation">
+    <section class="pet-details-container">
+            <!-- FORM CARD -->
+            <form id="donationForm" class="adoption-form">
+            <div class="pet-header">
+                <h1>Donate Now</h1>
+                <p>Your generosity makes a difference in our animals' lives</p>
+            </div>
 
-                <div class="amount-options">
-                    <div class="amount" data-value="100">₱100</div>
-                    <div class="amount" data-value="200">₱200</div>
-                    <div class="amount" data-value="500">₱500</div>
-                    <div class="amount" data-value="1000">₱1000</div>
-                    <div class="amount custom">Custom</div>
-                </div>
+            <div class="form-sections">
+                <!-- DONATION AMOUNT SECTION -->
+                <!-- LEFT COLUMN -->
+                <aside>
+                    <h3>Select Donation Amount</h3>
+                    <div class="amount-options">
+                        <div class="amount" data-value="100">₱100</div>
+                        <div class="amount" data-value="200">₱200</div>
+                        <div class="amount" data-value="500">₱500</div>
+                        <div class="amount" data-value="1000">₱1000</div>
+                        <div class="amount custom">Custom Amount</div>
+                    </div>
+                    <div class="form-group" id="customAmountGroup" style="display: none;">
+                        <label for="customAmount">Enter Amount</label>
+                        <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount" min="1">
+                    </div>
+                    <input type="hidden" id="selectedAmount" name="selectedAmount" value="0">
+                </aside>
 
-                <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount" disabled>
-
-                <h3>INFORMATION</h3>
-                <hr>
-
+                <!-- DONOR INFORMATION SECTION -->
+                <!-- RIGHT COLUMN -->
                 <aside>
-                    <label for="fullname">Full Name</label>
-                    <input type="text" name="fullname" placeholder="Full Name">
+                    <h3>Your Information</h3>
+                    <div class="form-group">
+                        <label for="donor-fullname">Full Name</label>
+                        <input type="text" id="donor-fullname" name="fullname" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-email">Email Address</label>
+                        <input type="email" id="donor-email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-contact">Contact Number</label>
+                        <input type="text" id="donor-contact" name="contact" placeholder="Contact Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="donor-message">Message/Suggestion</label>
+                        <textarea id="donor-message" name="message" placeholder="Message (optional)"></textarea>
+                    </div>
                 </aside>
-                <aside>
-                    <label for="email">Email Address</label>
-                    <input type="email" name="email" placeholder="Email Address">
-                </aside>
-                <aside>
-                    <label for="contact">Contact Number</label>
-                    <input type="text" name="contact" placeholder="Contact Number">
-                </aside>
-                <aside>
-                    <label for="message">Message/Suggestion</label>
-                    <textarea name="message" placeholder="Message (optional)"></textarea>
-                </aside>
+            </div>
                 
-                <div class="donate-btn">
-                    <button class="submit" type="submit">Submit Donation</button>
-                    <button class="switch-btn back" data-show="main-content">Back</button>
-                </div>
-                
-            </form> 
-        </div>
+            <div class="pet-actions">
+                <button class="adoptbtn btn-primary" type="submit">Submit Donation</button>
+                <button class="adoptbtn btn-secondary" type="button" onclick="switchPage('main-content')">Cancel</button>
+            </div>
+        </form>
+    </section>
     </main>
 
     <!-- ==== Wishlist ==== -->
     <main class="wishlist page" id="wishlist">
-        <button class="switch-btn back" data-show="main-content">Return to homepage</button>
         <section class="wish-header">
             <h2>Our Shelter's Wishlist</h2>
             <p>Help us provide the best care by donating these essential items.</p>
@@ -323,7 +342,6 @@
 
     <!-- ==== Event/Fundraiser ==== -->
     <main class="event page" id="event">
-        <button class="switch-btn back" data-show="main-content">Return to homepage</button>
         <section class="event-header">
                 <h2>Events</h2>
                 <p>Be part of our mission—join our events and fundraisers. No sign-up needed, just come and lend your support!</p>
@@ -420,7 +438,6 @@
         </section>
     </footer>
 
-    <!-- ===== OVERLAYS ==== -->
      <!-- ===== Care Tip Full Details Overlay ===== -->
     <div id="careOverlay" class="overlay">
         <div class="overlay-content">
@@ -431,5 +448,156 @@
     </div>
 
     <script src="paw-patrol.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="config.js"></script>
+    
+    <!-- Donation Form Script -->
+    <script>
+        let emailjsReady = false;
+
+        // Initialize EmailJS 
+        function initEmailJS() {
+            try {
+                if (window.emailjs) {
+                    emailjs.init({
+                        publicKey: 'PUBLIC_KEY'
+                    });
+                    emailjsReady = true;
+                    console.log('✅ EmailJS initialized successfully');
+                } else {
+                    console.error('❌ window.emailjs not found, retrying...');
+                    setTimeout(initEmailJS, 500);
+                }
+            } catch (error) {
+                console.error('❌ Error initializing EmailJS:', error);
+                setTimeout(initEmailJS, 500);
+            }
+        }
+
+        window.addEventListener('load', function() {
+            initEmailJS();
+        });
+        if (document.readyState === 'complete') {
+            initEmailJS();
+        }
+        var checkInterval = setInterval(function() {
+            if (window.emailjs && !emailjsReady) {
+                initEmailJS();
+                clearInterval(checkInterval);
+            }
+        }, 500);
+
+        // Handle amount selection
+        function setupAmountSelection() {
+            document.querySelectorAll('.amount-options .amount').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.amount-options .amount').forEach(btn => {
+                        btn.classList.remove('selected');
+                    });
+                    
+                    this.classList.add('selected');
+                    
+                    const value = this.getAttribute('data-value');
+                    const customAmountGroup = document.getElementById('customAmountGroup');
+                    const customAmountInput = document.getElementById('customAmount');
+                    
+                    if (value) {
+                        document.getElementById('selectedAmount').value = value;
+                        customAmountGroup.style.display = 'none';
+                        customAmountInput.value = '';
+                    } else if (this.classList.contains('custom')) {
+                        document.getElementById('selectedAmount').value = '0';
+                        customAmountGroup.style.display = 'block';
+                        customAmountInput.focus();
+                    }
+                });
+            });
+
+            // Handle custom amount input
+            const customAmount = document.getElementById('customAmount');
+            if (customAmount) {
+                customAmount.addEventListener('input', function() {
+                    if (this.value) {
+                        document.getElementById('selectedAmount').value = this.value;
+                    }
+                });
+            }
+        }
+
+        // Handle form submission
+        function setupFormSubmission() {
+            const donationForm = document.getElementById('donationForm');
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    if (!emailjsReady || !window.emailjs) {
+                        alert('Email service is loading. Please wait a moment and try again.');
+                        console.error('EmailJS not ready. Ready:', emailjsReady, 'Exists:', !!window.emailjs);
+                        return;
+                    }
+
+                    const selectedAmount = document.getElementById('selectedAmount').value;
+                    
+                    if (!selectedAmount || selectedAmount === '0') {
+                        alert('Please select or enter a donation amount');
+                        return;
+                    }
+
+                    const templateParams = {
+                        to_email: 'pawpatrolorganization@gmail.com', 
+                        donor_name: document.getElementById('donor-fullname').value,
+                        donor_email: document.getElementById('donor-email').value,
+                        donor_contact: document.getElementById('donor-contact').value,
+                        donation_amount: selectedAmount,
+                        donor_message: document.getElementById('donor-message').value,
+                        donation_date: new Date().toLocaleDateString()
+                    };
+
+                    console.log('📤 Sending donation...');
+
+                    // Send email
+                    emailjs.send('SERVICE_ID', 'TEMPLATE_ID', templateParams)
+                        .then(function(response) {
+                            console.log('✅ Email sent!', response);
+                            alert('Thank you for your donation! We will contact you shortly.');
+                            document.getElementById('donationForm').reset();
+                            document.querySelectorAll('.amount-options .amount').forEach(btn => {
+                                btn.classList.remove('selected');
+                            });
+                            document.getElementById('selectedAmount').value = '0';
+                            document.getElementById('customAmountGroup').style.display = 'none';
+                            switchPage('main-content');
+                        })
+                        .catch(function(error) {
+                            console.error('❌ Email failed:', error);
+                            alert('Error: ' + (error.text || error.message || 'There was an error processing your donation.'));
+                        });
+                });
+            }
+        }
+
+        // Function to switch pages
+        function switchPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+        }
+
+        // Setup when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setupAmountSelection();
+                setupFormSubmission();
+            });
+        } else {
+            setupAmountSelection();
+            setupFormSubmission();
+        }
+    </script>
 </body>
 </html>
