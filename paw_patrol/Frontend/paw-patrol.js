@@ -314,6 +314,9 @@ async function donateForm() {
             }
         });
     });
+    customInput.addEventListener('input', () => {
+        document.getElementById('selectedAmount').value = customInput.value;
+    });
 }
 
 // Switch between Main Sections 
@@ -367,7 +370,7 @@ function wishlistCards(items) {
 // initiliaze wishlist
 async function initWishlist() {
     const wishlist = await loadJSON('pets-wishlist.json'); // Path to your JSON file
-
+    window.wishlistData = wishlist; // STORE FOR GLOBAL USE
     // Initial render (all items)
     wishlistCards(wishlist);
 
@@ -391,6 +394,39 @@ async function initWishlist() {
         });
     });
 }
+// Handles donation from wishlist
+function donateItem(id) {
+    const item = window.wishlistData.find(i => i.id === id);
+    if (!item) return;
+
+    // switch to donation page
+    switchPage('donation');
+
+    // auto fill price
+    const customBtn = document.querySelector('.amount.custom');
+    const customInput = document.getElementById('customAmount');
+    const selectedAmount = document.getElementById('selectedAmount');
+
+    // simulate selecting custom amount
+    document.querySelectorAll('.amount').forEach(a => a.classList.remove('selected'));
+    customBtn.classList.add('selected');
+
+    document.getElementById('customAmountGroup').style.display = 'block';
+
+    customInput.disabled = false;
+    customInput.value = item.amount_value; 
+    selectedAmount.value = item.amount_value;
+
+    // auto fill message
+    document.getElementById('donor-message').value =
+        `Donation from Wishlist – ${item.name}`;
+
+    // scroll to top of donation page
+    setTimeout(() => {
+        document.getElementById('donation').scrollIntoView({ behavior: "smooth" });
+    }, 100);
+}
+
 
 // Populate Event Cards 
 function eventCards(events) {

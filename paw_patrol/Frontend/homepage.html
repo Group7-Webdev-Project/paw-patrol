@@ -45,7 +45,7 @@
     </header>
 
     <!-- ========== MAIN CONTENT ========== -->
-    <main class="main-content page active" id="main-content">
+    <main class="main-content page active" id="main-content" >
         <!-- ========== HERO SECTION ========== -->
         <section class="hero">
             <div class="parallax-wrapper">
@@ -196,7 +196,7 @@
                         </aside>
                         <aside class="volunteer-form">
                             <p><b>Be a Volunteer: </b>Join our team of dedicated volunteers and make a difference.</p>
-                            <a href="volunteerSignUpForm.html">Sign Up</a>
+                            <button class="switch-btn" data-show="volunteer-main">Sign Up</button>
                         </aside>
                     </article>
 
@@ -263,62 +263,62 @@
 
     <!-- ==== Donation ==== -->
     <main class="donation page pet-details-main" id="donation">
-    <section class="pet-details-container">
-            <!-- FORM CARD -->
-            <form id="donationForm" class="adoption-form">
-            <div class="pet-header">
-                <h1>Donate Now</h1>
-                <p>Your generosity makes a difference in our animals' lives</p>
-            </div>
+        <section class="pet-details-container">
+                <!-- FORM CARD -->
+                <form id="donationForm" class="adoption-form">
+                    <div class="pet-header">
+                        <h1>Donate Now</h1>
+                        <p>Your generosity makes a difference in our animals' lives</p>
+                    </div>
 
-            <div class="form-sections">
-                <!-- DONATION AMOUNT SECTION -->
-                <!-- LEFT COLUMN -->
-                <aside>
-                    <h3>Select Donation Amount</h3>
-                    <div class="amount-options">
-                        <div class="amount" data-value="100">₱100</div>
-                        <div class="amount" data-value="200">₱200</div>
-                        <div class="amount" data-value="500">₱500</div>
-                        <div class="amount" data-value="1000">₱1000</div>
-                        <div class="amount custom">Custom Amount</div>
-                    </div>
-                    <div class="form-group" id="customAmountGroup" style="display: none;">
-                        <label for="customAmount">Enter Amount</label>
-                        <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount" min="1">
-                    </div>
-                    <input type="hidden" id="selectedAmount" name="selectedAmount" value="0">
-                </aside>
+                <div class="form-sections">
+                    <!-- DONATION AMOUNT SECTION -->
+                    <!-- LEFT COLUMN -->
+                    <aside>
+                        <h3>Select Donation Amount</h3>
+                        <div class="amount-options">
+                            <div class="amount" data-value="100">₱100</div>
+                            <div class="amount" data-value="200">₱200</div>
+                            <div class="amount" data-value="500">₱500</div>
+                            <div class="amount" data-value="1000">₱1000</div>
+                            <div class="amount custom">Custom Amount</div>
+                        </div>
+                        <div class="form-group" id="customAmountGroup" style="display: none;">
+                            <label for="customAmount">Enter Amount</label>
+                            <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount" min="1">
+                        </div>
+                        <input type="hidden" id="selectedAmount" name="selectedAmount" value="0">
+                    </aside>
 
-                <!-- DONOR INFORMATION SECTION -->
-                <!-- RIGHT COLUMN -->
-                <aside>
-                    <h3>Your Information</h3>
-                    <div class="form-group">
-                        <label for="donor-fullname">Full Name</label>
-                        <input type="text" id="donor-fullname" name="fullname" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="donor-email">Email Address</label>
-                        <input type="email" id="donor-email" name="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="donor-contact">Contact Number</label>
-                        <input type="text" id="donor-contact" name="contact" placeholder="Contact Number">
-                    </div>
-                    <div class="form-group">
-                        <label for="donor-message">Message/Suggestion</label>
-                        <textarea id="donor-message" name="message" placeholder="Message (optional)"></textarea>
-                    </div>
-                </aside>
-            </div>
-                
-            <div class="pet-actions">
-                <button class="adoptbtn btn-primary" type="submit">Submit Donation</button>
-                <button class="adoptbtn btn-secondary" type="button" onclick="switchPage('main-content')">Cancel</button>
-            </div>
-        </form>
-    </section>
+                    <!-- DONOR INFORMATION SECTION -->
+                    <!-- RIGHT COLUMN -->
+                    <aside>
+                        <h3>Your Information</h3>
+                        <div class="form-group">
+                            <label for="donor-fullname">Full Name</label>
+                            <input type="text" id="donor-fullname" name="fullname" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donor-email">Email Address</label>
+                            <input type="email" id="donor-email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="donor-contact">Contact Number</label>
+                            <input type="text" id="donor-contact" name="contact" placeholder="Contact Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="donor-message">Message/Suggestion</label>
+                            <textarea id="donor-message" name="message" placeholder="Message (optional)"></textarea>
+                        </div>
+                    </aside>
+                </div>
+                    
+                <div class="pet-actions">
+                    <button class="adoptbtn btn-primary" type="submit">Submit Donation</button>
+                    <button class="adoptbtn btn-secondary" type="button" onclick="switchPage('main-content')">Cancel</button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <!-- ==== Wishlist ==== -->
@@ -337,6 +337,106 @@
         <hr>
         <section class="wish-container">
             <!-- Populate with Cards -->
+        </section>
+        <button class="switch-btn back" data-show="main-content">Return to homepage</button>
+    </main>
+
+    <!-- ==== Volunteer ==== -->
+    <main class="volunteer-main page" id="volunteer-main">
+        <section class="volunteer-section">
+
+            <div class="volunteer-header">
+                <h1>Become a Paw Patrol Volunteer</h1>
+                <p>Join our team and make a difference in the lives of animals!</p>
+            </div>
+
+            <form class="volunteer-form">
+                <section class="vol-info">
+                    <!-- CONTACT INFORMATION SECTION -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-user"></i> Your Contact Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Juan Dela Cruz">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="you@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0912 345 6789">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address <span class="required">*</span></label>
+                            <input type="text" id="address" name="address" required placeholder="Complete Address">
+                        </div>
+                    </div>
+
+                    <!-- AVAILABILITY & INTERESTS SECTION -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-calendar"></i> Availability & Interests</h3>
+                        
+                        <div class="form-group">
+                            <label for="availability">Preferred Availability <span class="required">*</span></label>
+                            <select id="availability" name="availability" required>
+                                <option value="" disabled selected>Select your preferred time</option>
+                                <option>Weekdays (Morning)</option>
+                                <option>Weekdays (Afternoon)</option>
+                                <option>Weekends (Morning)</option>
+                                <option>Weekends (Afternoon)</option>
+                                <option>Flexible</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="commitment">Commitment Level <span class="required">*</span></label>
+                            <select id="commitment" name="commitment" required>
+                                <option value="" disabled selected>Select your commitment level</option>
+                                <option>A few hours per week</option>
+                                <option>1-2 days per week</option>
+                                <option>3+ days per week</option>
+                                <option>As needed (flexible)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="areaOfInterest">Area of Interest <span class="required">*</span></label>
+                            <select id="areaOfInterest" name="areaOfInterest" required>
+                                <option value="" disabled selected>Select your area of interest</option>
+                                <option>Animal Care (feeding, walking)</option>
+                                <option>Event Support & Fundraising</option>
+                                <option>Administrative Tasks</option>
+                                <option>Social Media & Outreach</option>
+                                <option>Fostering Animals</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Why do you want to volunteer? </label>
+                            <textarea id="experience" name="experience" rows="4" placeholder="Tell us about your motivation or any relevant experience you have with animals or volunteering..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- INFO BOX -->
+                <div class="volunteer-info-box">
+                    <h3><i class="fa-solid fa-lightbulb"></i> What to Expect</h3>
+                    <p>After submitting your application, our team will review it and contact you within 3-5 business days. We'll discuss available positions, schedule a brief orientation, and get you started on your volunteer journey!</p>
+                </div>
+
+                <!-- FORM ACTIONS -->
+                <div class="volunteer-actions">
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <a href="homepage.html" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+
         </section>
     </main>
 
@@ -359,6 +459,7 @@
         <section class="event-container">
                 <!-- Populate with cards -->
         </section>
+        <button class="switch-btn back" data-show="main-content">Return to homepage</button>
     </main> 
 
 
