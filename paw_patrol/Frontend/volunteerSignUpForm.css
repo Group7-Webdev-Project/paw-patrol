@@ -39,6 +39,7 @@ section.volunteer-section form.volunteer-form section.vol-info {
     padding: 0;
     justify-content: space-between;
 }
+
     /* Volunteer Form */
 form.volunteer-form section.vol-info div.form-section {
     display: flex;
@@ -49,6 +50,7 @@ form.volunteer-form section.vol-info div.form-section {
 }
 form.volunteer-form section.vol-info div.form-section h3 {
     font-size: 20px;
+    color: #000000;
 }
 form.volunteer-form section.vol-info div.form-section div.form-group {
     display: flex;
@@ -151,7 +153,7 @@ section.volunteer-section form.volunteer-form div.volunteer-actions button.btn-p
     display: inline-block;
 }
 
-form.volunteer-form div.volunteer-actions button.btn-primary:hover {
+section.volunteer-section form.volunteer-form div.volunteer-actions button.btn-primary:hover {
     background-color: #f26929;
     transform: scale(1.05);
 }

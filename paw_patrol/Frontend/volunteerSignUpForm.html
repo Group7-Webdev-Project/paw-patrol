@@ -133,8 +133,8 @@
 
                 <!-- FORM ACTIONS -->
                 <div class="volunteer-actions">
-                    <button type="submit" class="btn btn-primary">Submit Application</button>
-                    <a href="homepage.html#help" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="adoptbtn-primary">Submit Application</button>
+                    <a href="homepage.html#help" class="adoptbtn btn-secondary">Cancel</a>
                 </div>
             </form>
 
@@ -217,7 +217,131 @@
         </section>
     </footer>
     -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="config.js"></script>
+
     <script>
+        let emailjsReady = false;
+
+        // Initialize EmailJS 
+        function initEmailJS() {
+            try {
+                if (window.emailjs) {
+                    emailjs.init({
+                        publicKey: CONFIG.EMAILJS_PUBLIC_KEY
+                    });
+                    emailjsReady = true;
+                    console.log('EmailJS initialized successfully');
+                } else {
+                    console.error('window.emailjs not found, retrying...');
+                    setTimeout(initEmailJS, 500);
+                }
+            } catch (error) {
+                console.error('Error initializing EmailJS:', error);
+                setTimeout(initEmailJS, 500);
+            }
+        }
+
+        window.addEventListener('load', function() {
+            initEmailJS();
+        });
+        if (document.readyState === 'complete') {
+            initEmailJS();
+        }
+        var checkInterval = setInterval(function() {
+            if (window.emailjs && !emailjsReady) {
+                initEmailJS();
+                clearInterval(checkInterval);
+            }
+        }, 500);
+
+        // Handle form submission
+        function setupVolunteerFormSubmission() {
+            const volunteerForm = document.querySelector('.volunteer-form');
+            if (volunteerForm) {
+                volunteerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    if (!emailjsReady || !window.emailjs) {
+                        alert('Email service is loading. Please wait a moment and try again.');
+                        console.error('EmailJS not ready. Ready:', emailjsReady, 'Exists:', !!window.emailjs);
+                        return;
+                    }
+
+                    const templateParams = {
+                        to_email: 'pawpatrolorganization@gmail.com', 
+                        volunteer_name: document.getElementById('fullName').value,
+                        volunteer_email: document.getElementById('email').value,
+                        volunteer_phone: document.getElementById('phone').value,
+                        volunteer_address: document.getElementById('address').value,
+                        availability: document.getElementById('availability').value,
+                        commitment: document.getElementById('commitment').value,
+                        area_of_interest: document.getElementById('areaOfInterest').value,
+                        experience: document.getElementById('experience').value,
+                        submission_date: new Date().toLocaleDateString()
+                    };
+
+                    console.log('Sending volunteer application...');
+
+                    // Send email
+                    emailjs.send(CONFIG.EMAILJS_VOLUNTEER_SERVICE_ID, CONFIG.EMAILJS_VOLUNTEER_TEMPLATE_ID, templateParams)
+                        .then(function(response) {
+                            console.log('Email sent!', response);
+                            alert('Thank you for your volunteer application! We will contact you within 3-5 business days.');
+                            volunteerForm.reset();
+                        })
+                        .catch(function(error) {
+                            console.error('Email failed:', error);
+                            alert('Error: ' + (error.text || error.message || 'There was an error submitting your application.'));
+                        });
+                });
+            }
+        }
+
+        // Handle volunteer form submission (on homepage modal)
+        function setupHomepageVolunteerFormSubmission() {
+            const volunteerForm = document.querySelector('#volunteer-main .volunteer-form');
+            if (volunteerForm) {
+                volunteerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    if (!emailjsReady || !window.emailjs) {
+                        alert('Email service is loading. Please wait a moment and try again.');
+                        console.error('EmailJS not ready. Ready:', emailjsReady, 'Exists:', !!window.emailjs);
+                        return;
+                    }
+
+                    const templateParams = {
+                        to_email: 'pawpatrolorganization@gmail.com', 
+                        volunteer_name: document.getElementById('fullName').value,
+                        volunteer_email: document.getElementById('email').value,
+                        volunteer_phone: document.getElementById('phone').value,
+                        volunteer_address: document.getElementById('address').value,
+                        availability: document.getElementById('availability').value,
+                        commitment: document.getElementById('commitment').value,
+                        area_of_interest: document.getElementById('areaOfInterest').value,
+                        experience: document.getElementById('experience').value,
+                        submission_date: new Date().toLocaleDateString()
+                    };
+
+                    console.log('Sending volunteer application...');
+
+                    // Send email
+                    emailjs.send(CONFIG.EMAILJS_VOLUNTEER_SERVICE_ID, CONFIG.EMAILJS_VOLUNTEER_TEMPLATE_ID, templateParams)
+                        .then(function(response) {
+                            console.log('Email sent!', response);
+                            alert('Thank you for your volunteer application! We will contact you within 3-5 business days.');
+                            volunteerForm.reset();
+                            switchPage('main-content');
+                        })
+                        .catch(function(error) {
+                            console.error('Email failed:', error);
+                            alert('Error: ' + (error.text || error.message || 'There was an error submitting your application.'));
+                        });
+                });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menu-toggle');
             const smallScreenMenu = document.getElementById('small-screen-menu');
@@ -229,6 +353,9 @@
                     menuToggle.querySelector('i').classList.toggle('fa-xmark'); // Change to 'x' icon
                 });
             }
+
+            // Setup volunteer form submission
+            setupVolunteerFormSubmission();
         });
     </script>
 </body>
