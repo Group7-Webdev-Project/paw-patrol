@@ -45,7 +45,7 @@
     </header>
 
     <!-- ========== MAIN CONTENT ========== -->
-    <main class="main-content page active" id="main-content" >
+    <main class="main-content page active" id="main-content">
         <!-- ========== HERO SECTION ========== -->
         <section class="hero">
             <div class="parallax-wrapper">
@@ -264,17 +264,17 @@
     <!-- ==== Donation ==== -->
     <main class="donation page pet-details-main" id="donation">
         <section class="pet-details-container">
-                <!-- FORM CARD -->
-                <form id="donationForm" class="adoption-form">
-                    <div class="pet-header">
-                        <h1>Donate Now</h1>
-                        <p>Your generosity makes a difference in our animals' lives</p>
-                    </div>
+            <!-- FORM CARD -->
+            <form id="donationForm" class="adoption-form">
+                <div class="pet-header">
+                    <h1>Donate Now</h1>
+                    <p>Your generosity makes a difference in our animals' lives</p>
+                </div>
 
                 <div class="form-sections">
                     <!-- DONATION AMOUNT SECTION -->
                     <!-- LEFT COLUMN -->
-                    <aside>
+                    <aside id="donate-left-col">
                         <h3>Select Donation Amount</h3>
                         <div class="amount-options">
                             <div class="amount" data-value="100">₱100</div>
@@ -288,6 +288,9 @@
                             <input type="number" id="customAmount" name="customAmount" placeholder="Enter custom amount" min="1">
                         </div>
                         <input type="hidden" id="selectedAmount" name="selectedAmount" value="0">
+                        <div class="donation-img-container" id="donation-img-container" style="display: none;">
+                            <!-- Image to be put here from wishlist -->
+                        </div>
                     </aside>
 
                     <!-- DONOR INFORMATION SECTION -->

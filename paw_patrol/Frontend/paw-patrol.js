@@ -421,6 +421,12 @@ function donateItem(id) {
     document.getElementById('donor-message').value =
         `Donation from Wishlist – ${item.name}`;
 
+    // auto fill image 
+    document.getElementById('donation-img-container').style.display = 'block';
+    document.getElementById('donation-img-container').innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+    `;
+    
     // scroll to top of donation page
     setTimeout(() => {
         document.getElementById('donation').scrollIntoView({ behavior: "smooth" });

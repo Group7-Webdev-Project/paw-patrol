@@ -3018,7 +3018,7 @@ main.event section.event-container div.card div.card-content p.place {
     margin-bottom: 8px;
 }
 
-/* ======== DONATION FORM STYLING ======== */
+/* ======== 3D MODEL STYLING ======== */
 .sketchfab-container {
     width: 100%;
     max-width: 900px;
@@ -3042,7 +3042,44 @@ main section#tower-model h2 i {
     main section#tower-model h2:hover i {
         transform: translateX(8px);
     } 
-
+/* ======== DONATION FORM STYLING ======== */
+main.donation section.pet-details-container div.form-sections aside {
+    display: flex;
+    flex-direction: column;
+}
+main.donation section.pet-details-container div.form-sections aside h3, 
+main.donation section.pet-details-container div.form-sections aside div label {
+    color: #4C1D95;
+}
+/* image sa donation pag galing sa wishlist */
+form.adoption-form div.form-sections aside div.donation-img-container {
+    width: 100%;
+    height: 250px;
+    align-self: center;
+    margin-top: 10px;
+}
+form.adoption-form div.form-sections aside div.donation-img-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+}
+    /* Donor Info Section */
+main.donation section.pet-details-container div.form-sections aside div.form-group textarea {
+    resize: none;
+    height: 200px;
+    color: #4C1D95;
+}
+     /* Pet Actions : Buttons */
+main.donation section.pet-details-container form.adoption-form div.pet-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+section.pet-details-container form.adoption-form div.pet-actions button {
+    width: 470px;
+    padding: 20px;
+}
 /* Amount options styling */
 .amount-options {
     display: flex;
@@ -3102,6 +3139,8 @@ main section#tower-model h2 i {
         padding: 12px;
         font-size: 14px;
     }
+    section.pet-details-container form.adoption-form div.pet-actions button {
+        width: 100%;
+    }
 }
-
 
