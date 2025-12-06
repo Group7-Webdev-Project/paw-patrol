@@ -819,7 +819,7 @@ div.care-tips-container article i.fa-chevron-up {
 
     /* PET CARE IMAGES */
 div.care-tips-container article aside.care-img-container {
-    width: 300px;
+    width: 100%;
     height: 400px;
     background-color: black;
     border-radius: 10px 10px 0 0;
@@ -3268,10 +3268,11 @@ section#care div.care-tips-container {
 
 /* Fix 3: Ensure each individual card is responsive */
 section#care div.care-tips-container article {
-    width: 90%; 
+    width: 100%; 
     max-width: 350px; /* Limits the max size on larger mobile/tablet screens */
     margin-bottom: 20px;
 }
+
 div.care-tips-container article h3 {
     color: white;
     background-color: #7C3AED;
