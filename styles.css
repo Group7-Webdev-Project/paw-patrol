@@ -444,7 +444,10 @@ section#about div.bottom-about aside.news-blog {
 section#about div.bottom-about aside.news-blog div.news-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* FIX 1: Center cards horizontally */
+    justify-content: center; 
+    /* FIX 2: Add spacing between cards (both row and column gap) */
+    gap: 20px; 
     position: relative;
 }
 
@@ -3156,3 +3159,66 @@ section.pet-details-container form.adoption-form div.pet-actions button {
     }
 }
 
+/* ======== RESPONSIVE DESIGN - MOBILE ======== */
+@media (max-width: 768px) {
+    /* FIX: Prevent horizontal overflow/scaling issue */
+    section#help {
+        width: 100%;
+        overflow-x: hidden; 
+        box-sizing: border-box; 
+    }
+    
+    
+    /* FIX: Center the About Us header and paragraph (Highly Specific) */
+    section#about div.about-header {
+        /* 1. Center the inline content (h2 and p) */
+        text-align: center;
+        /* 2. Ensure the div itself is centered if it had a fixed width or max-width */
+        margin-left: auto;
+        margin-right: auto;
+        /* 3. Ensure it takes up the full available space to center across the screen */
+        width: 100%; 
+        box-sizing: border-box;
+    }
+    
+    /* Center the News & Blog header by increasing specificity and clearing potential conflicts */
+    section#about div.bottom-about aside.news-blog h3 {
+        text-align: center;
+        margin-left: 0 !important; 
+        margin-right: 0 !important;
+        width: 100%; 
+        box-sizing: border-box;
+    }
+    
+    /* Center the News & Blog aside itself (in case a container is pushing it left) */
+    aside.news-blog {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Center the two main columns (mission-vision and our-team) horizontally */
+    section#about div.upper-about {
+        justify-content: center;
+    }
+    
+    /* Make the two main columns take full width so they stack neatly */
+    div.upper-about aside.mission-vision,
+    div.upper-about aside.our-team {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Center the text inside the Mission/Vision/Choose Us articles */
+    div.upper-about aside.mission-vision article {
+        text-align: center;
+    }
+
+    /* Ensure the team members are centered below the image */
+    div.upper-about aside.our-team div.team-people-container {
+        justify-content: center;
+    }
+
+    
+}
