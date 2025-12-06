@@ -761,22 +761,34 @@ section#care div.care-tips-container {
     justify-content: space-between;
 }
 
+/* REPLACE YOUR EXISTING article RULE with this */
 section#care div.care-tips-container article {
     width: 300px;
-    height: auto; /* let article size to its content (image + heading) */
+    height: auto; 
     margin-bottom: 10px;
     position: relative;
     padding: 0;
     cursor: pointer;
+    /* FIX: Set box-sizing on the parent to ensure correct width calculations */
+    box-sizing: border-box; 
 }
+/* REPLACE YOUR EXISTING h3 RULE with this */
 div.care-tips-container article h3 {
     color: white;
     background-color: #7C3AED;
     margin: 0;
-    padding: 18px 0 12px 0; 
+    /* Added consistent horizontal padding (15px left/right) */
+    padding: 18px 15px 12px 15px; 
     font-size: 16px;
     transition: 0.3s ease-in-out;
     border-radius: 0 0 10px 10px;
+
+    /* FIX 1: Ensure it spans the full width of the parent */
+    width: 100%; 
+    /* FIX 2: Includes the padding (15px on each side) inside the 100% width */
+    box-sizing: border-box;
+    /* FIX 3: Centers the title text horizontally */
+    text-align: center; 
 }
     section#care div.care-tips-container article:hover h3 {
         transform: translateY(-5px);
@@ -3220,5 +3232,62 @@ section.pet-details-container form.adoption-form div.pet-actions button {
         justify-content: center;
     }
 
+    /* === FIX 2: Adopt Buttons/Cards Centering (Existing) === */
+    .adopt-buttons {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 15px; 
+    }
     
+    .adopt-buttons > * { 
+        width: 90%; 
+        max-width: 90%; 
+        margin: 0 auto 15px auto; 
+        flex: 0 0 90%;
+    }
+    /* Add these styles inside your @media screen and (max-width: 768px) block */
+
+/* Fix 1: Force the main section to full width (100%) so content can center globally */
+main section#care {
+    width: 100%;
+    /* Add padding to prevent content from touching the screen edges */
+    padding: 60px 15px; 
+    box-sizing: border-box; 
+}
+
+/* Fix 2: Center the cards horizontally within the container */
+section#care div.care-tips-container {
+    justify-content: center; 
+    /* Optional: Adds vertical space between cards when they stack */
+    gap: 20px; 
+}
+
+/* Fix 3: Ensure each individual card is responsive */
+section#care div.care-tips-container article {
+    width: 90%; 
+    max-width: 350px; /* Limits the max size on larger mobile/tablet screens */
+    margin-bottom: 20px;
+}
+div.care-tips-container article h3 {
+    color: white;
+    background-color: #7C3AED;
+    margin: 0;
+    /* Added consistent horizontal padding (15px left/right) */
+    padding: 18px 15px 12px 15px; 
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    border-radius: 0 0 10px 10px;
+
+    /* FIX 1: Ensure it spans the full width of the parent */
+    width: 100%; 
+    /* FIX 2: Includes the padding (15px on each side) inside the 100% width */
+    box-sizing: border-box;
+    /* FIX 3: Centers the title text horizontally */
+    text-align: center; 
+}
+
 }
