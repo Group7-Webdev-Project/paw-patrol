@@ -124,81 +124,88 @@ header div.small-screen-menu {
 
 
 /* ======== HERO SECTION ======== */
-.hero {
+
+/* Parallax hero wrapper */
+main.main-content section.wrapper {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 70px);
+    min-height: 420px;
     overflow: hidden;
-    background: url('images/pets-bg.jpg') center/cover no-repeat;
-    color: #FFF9F4;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    padding-top: 0;
+    display: block;
 }
 
-/* Optional overlay tint */
-.hero::before {
-    content: "";
+section.wrapper div.parallax {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(124, 58, 237, 0.55);
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; /* keep images behind hero content */
+}
+
+section.wrapper div.parallax img {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    will-change: transform;
+    user-select: none;
+    pointer-events: none;
+    max-width: none;
+}
+
+section.wrapper div.parallax img.parallax-bg {
+    top: -10%;
+    width: 120%;
+    height: auto;
+    min-height: 120%;
+    object-fit: cover;
     z-index: 1;
 }
 
-/* Parallax layers (only active if you add images later) */
-.hero .layer {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: translateZ(0);
-    will-change: transform;
-    
-   transition: transform 0.1s ease-out; /* smoothens motion */
+section.wrapper div.parallax img.parallax-fg {
+    bottom: -5%;
+    width: 115%;
+    height: 90%;
+    object-fit: cover;
+    z-index: 6;
+    opacity: 0.95;
 }
 
-/* Example layer setup (you can add these later) */
-.hero .sky   { background-image: url('images/blue_sky.svg'); z-index: 1; }
-.hero .back  { background-image: url('images/back hills.svg'); z-index: 2; }
-.hero .tower {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3; /* slightly above back, below mid */
-  background-image: url('images/tower_without.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 35%; /* smaller tower */
-  pointer-events: none; /* ensures tower doesn't block text clicks */
+section.wrapper > div.hero-content {
+    position: relative; /* ensure stacking above .parallax */
+    z-index: 10;
+    pointer-events: auto; /* make sure buttons/links are interactive */
 }
-
-.hero .mid   { background-image: url('images/paw_patrol_middle_hills.svg'); z-index: 3; }
-.hero .front { background-image: url('images/front_hills.svg'); z-index: 4; }
 
 /* Text content */
-.hero-content {
+main.main-content section.wrapper div.hero-content {
     position: relative;
     z-index: 10; /* above overlay */
     top: 45%;
     transform: translateY(-50%);
     padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.hero-content h2 {
+section.wrapper div.hero-content h2 {
     font-size: 3.0rem;
     margin-bottom: 15px;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     font-family: 'LEMON';
 }
+    section.wrapper div.hero-content h2.outline {
+         text-shadow:
+            -0.5px -0.5px 0 white,
+            0.5px -0.5px 0 white,
+            -0.5px  0.5px 0 white,
+            0.5px  0.5px 0 white;
+    }
 
-.hero-content p {
+section.wrapper div.hero-content p {
     font-size: 1.2rem;
     margin-bottom: 25px;
 }
 
-.hero-content .btn {
+section.wrapper div.hero-content a.btn {
     display: inline-block;
     background-color: #f26929;
     color: white;
@@ -207,11 +214,11 @@ header div.small-screen-menu {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.hero-content .btn:hover {
+section.wrapper div.hero-content a.btn:hover {
     background: linear-gradient(135deg, #7C3AED, #A78BFA);
-    transform: scale(1.08);
 }
 
 
@@ -236,7 +243,7 @@ main section h2 {
     HOMAPAGE ABOUT US
 */
 main section#about {
-    background: #ffffff;
+    background: #fff;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -480,7 +487,7 @@ div.bottom-about aside.news-blog div.news-container article.news-card a {
     HOMEPAGE ADOPT
 */
 main section#adopt {
-    background-color: white;
+    background-color: #F3E8FF;
     min-height: 60vh;
 }
 
@@ -3027,6 +3034,10 @@ main.event section.event-container div.card div.card-content p.place {
     overflow: hidden;
 }
 
+main section#tower-model {
+    background-color: white;
+}
+
 main section#tower-model h2 {
     display: flex;
     justify-content: center;
@@ -3042,6 +3053,7 @@ main section#tower-model h2 i {
     main section#tower-model h2:hover i {
         transform: translateX(8px);
     } 
+
 /* ======== DONATION FORM STYLING ======== */
 main.donation section.pet-details-container div.form-sections aside {
     display: flex;
