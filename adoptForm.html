@@ -102,10 +102,10 @@
             <div class="form-group">
                 <label>Type of Home</label>
                 <select id="adoptHomeType" required>
-                <option value="" disabled selected>Select</option>
-                <option>House</option>
-                <option>Apartment</option>
-                <option>Farm</option>
+                    <option value="" disabled selected>Select</option>
+                    <option>House</option>
+                    <option>Apartment</option>
+                    <option>Farm</option>
                 </select>
             </div>
 
@@ -299,8 +299,22 @@
                         pet_name: pet.name,
                         pet_breed: pet.breed,
                         pet_age: pet.age,
-                        submission_date: new Date().toLocaleDateString()
+                        submission_date: new Date().toISOString().split('T')[0]
                     };
+
+                    // // Send to PHP backend
+                    // fetch("save_adoption.php", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json"
+                    //     },
+                    //     body: JSON.stringify(templateParams)
+                    // })
+                    // .then(res => res.text())
+                    // .then(data => {
+                    //     console.log("PHP response: ", data);
+                    // })
+                    // .catch(err => console.error("Error sending to PHP adoption:", err));
 
                     console.log('Sending adoption application...');
 

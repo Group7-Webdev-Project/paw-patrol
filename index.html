@@ -22,20 +22,20 @@
         </a>
   
         <nav class="navigation" id="nav-menu">
-            <a href="#">Home</a>                     <!-- top of page -->
-            <a href="#adopt">Adopt</a>               <!-- scrolls to Adopt section -->
-            <a href="#about">About Us</a>            <!-- scrolls to About -->
-            <a href="#help">Get Involved</a>         <!-- scrolls to Involved -->
-            <a href="#care">Petcare Tips</a>         <!-- scrolls to Tips -->
+            <a href="index.html#">Home</a>                     <!-- top of page -->
+            <a href="index.html#adopt">Adopt</a>               <!-- scrolls to Adopt section -->
+            <a href="index.html#about">About Us</a>            <!-- scrolls to About -->
+            <a href="index.html#help">Get Involved</a>         <!-- scrolls to Involved -->
+            <a href="index.html#care">Petcare Tips</a>         <!-- scrolls to Tips -->
         </nav>
 
         
         <div class="small-screen-menu" id="small-screen-menu">
-            <a href="#">Home</a>
-            <a href="#adopt">Adopt</a>
-            <a href="#about">About Us</a>
-            <a href="#help">Get Involved</a>
-            <a href="#care">Petcare Tips</a>
+            <a href="index.html#">Home</a>
+            <a href="index.html#adopt">Adopt</a>
+            <a href="index.html#about">About Us</a>
+            <a href="index.html#help">Get Involved</a>
+            <a href="index.html#care">Petcare Tips</a>
         </div>
 
 
@@ -653,8 +653,22 @@
                         donor_contact: document.getElementById('donor-contact').value,
                         donation_amount: selectedAmount,
                         donor_message: document.getElementById('donor-message').value,
-                        donation_date: new Date().toLocaleDateString()
+                        donation_date: new Date().toISOString().split('T')[0]
                     };
+
+                    // Send to PHP backend
+                    // fetch("save_donation.php", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json"
+                    //     },
+                    //     body: JSON.stringify(templateParams)
+                    // })
+                    // .then(response => response.text())
+                    // .then(data => {
+                    //     console.log("PHP response:", data);
+                    // })
+                    // .catch(error => console.error("Error sending to PHP donation:", error));
 
                     console.log('Sending donation...');
 
@@ -713,8 +727,22 @@
                         commitment: document.getElementById('commitment').value,
                         area_of_interest: document.getElementById('areaOfInterest').value,
                         experience: document.getElementById('experience').value,
-                        submission_date: new Date().toLocaleDateString()
+                        submission_date: new Date().toISOString().split('T')[0]
                     };
+
+                    // Send to PHP backend
+                    // fetch("save_volunteer.php", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json"
+                    //     },
+                    //     body: JSON.stringify(templateParams)
+                    // })
+                    // .then(response => response.text())
+                    // .then(data => {
+                    //     console.log("PHP response:", data);
+                    // })
+                    // .catch(error => console.error("Error sending to PHP volunteer:", error));
 
                     console.log('Sending volunteer application...');
 
