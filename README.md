@@ -18,24 +18,49 @@ Instead of fixed roles, responsibilities are shared and adjusted based on group 
 - Visual Studio Code
 - Git & GitHub
 - GitHub Pages
+
 ## Site Structure
-- `index.html` – Homepage
-- `paw-patrol.js` – Site interactivty
-- `styles.css` - Design
-- `Images/` – Images and icons
+
+```
+paw-patrol/
+│
+├── index.html              # Homepage
+├── styles.css              # Main stylesheet
+├── paw-patrol.js           # Frontend interactivity
+├── adoptForm.html          # Adoption form page
+├── adoptProcess.html       # Adoption process page
+├── adoptionRequirements    # Adoption requirements page
+├── adopt.css               # Stylesheet for adoption processes
+├── meet-more.html/css/js   # Meet more pets page
+├── pet-details.html/js     # Pet details page
+├── petcareTips.js          # Interactivity for pet care tips
+├── successStories.html     # Success stories page
+├── pets-careDetails.json   # Pets care list
+├── pets-data.json          # Pets information list
+├── pets-event.json         # Pets event list
+├── pets-wishlist.json      # Pets wishlist
+├── images/                 # Images and icons
+├── fonts/                  # Fonts
+|
+├── README.md               # Phase 2 Documentation
+```
+  
 ## Design Concept
 - **Color Scheme**: Purple, white, and orange for pet-branding
 - **Typography**: Sans-serif fonts for readability and LEMON for headers
 - **Layout**: Consistent spacing, mobile-friendly grid
+  
 ## Deployment
 - GitHub Repository:
 https://github.com/Group7-Webdev-Project/paw-patrol - Live Site: https://group7-webdev-project.github.io/paw-patrol
+
 ## Lessons Learned
 - Improved collaboration using Git
 - Learned how to deploy static sites via GitHub Pages
 - Practiced responsive design and semantic HTML
-- Applied intermedita CSS rules
+- Applied intermediate CSS rules
 - Enhanced site interacrtivity via JS
+  
 ## Timeline  
 | Phase | Task | Date |  
 |:------|:-----|:-----|   
